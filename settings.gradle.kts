@@ -15,9 +15,9 @@ if (!file(".git").exists()) {
     val errorText = """
         
         =====================[ ERROR ]=====================
-         The Tentacles project directory is not a properly cloned Git repository.
+         The Nanaica project directory is not a properly cloned Git repository.
          
-         In order to build Tentacles from source you must clone
+         In order to build Nanaica from source you must clone
          the repository using Git, not download a code zip from GitHub.
          
          See https://github.com/PurpurMC/Purpur/blob/HEAD/CONTRIBUTING.md
@@ -27,9 +27,9 @@ if (!file(".git").exists()) {
     error(errorText)
 }
 
-rootProject.name = "tentacles"
+rootProject.name = "Nanaica"
 
-for (name in listOf("Tentacles-API", "Tentacles-Server")) {
+for (name in listOf("Nanaica-API", "Nanaica-Server")) {
     val projName = name.lowercase(Locale.ENGLISH)
     include(projName)
     findProject(":$projName")!!.projectDir = file(name)
