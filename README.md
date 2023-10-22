@@ -1,6 +1,10 @@
-[Purpur]: https://purpurmc.org
+## Fork of [Purpur]: https://purpurmc.org Meant For You!
 
-## Tentacles
-Template to create a mantainable fork of [Purpur].
+## Nanaica
+## Performance Matters
 
-This readme will eventually contain instructions regarding the patch system. For now, visit Purpur's [CONTRIBUTING.md](https://github.com/PurpurMC/Purpur/blob/HEAD/CONTRIBUTING.md).
+  
+  [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/Nanaica/Nanaica/build.yml?logo=GoogleAnalytics&logoColor=ffffff&style=for-the-badge)](https://github.com/Nanaica/Nanaica/actions)
+  [![Discord](https://img.shields.io/discord/931595732752953375?color=5865F2&label=discord&style=for-the-badge)](https://discord.nanaicamc.tk)
+  [![Download](https://img.shields.io/github/downloads/DivineMC/DivineMC/total?&style=for-the-badge&logoColor=ffffff)](https://github.com/Nanaica/Nanaica/releases/latest)
+</div>
