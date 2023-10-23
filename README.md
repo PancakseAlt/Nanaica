@@ -1,4 +1,4 @@
-## Fork of [Purpur]: https://purpurmc.org Meant For You!
+## Fork of PurpurMC Meant For You!
 
 ## Nanaica
 ## Performance Matters
