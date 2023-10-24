@@ -1,7 +1,8 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
-From: Pancakse <pancakseyt@gmail.com>
-Date: Mon, 23 Oct 2023 19:17:06 +0300
+From: SoSeDiK <mrsosedik@gmail.com>
+Date: Mon, 27 Jun 2022 19:17:06 +0300
 Subject: [PATCH] Accept the EULA
+From: Kiterino Another Fork of Purpur
 
 
 diff --git a/src/main/java/net/minecraft/server/Main.java b/src/main/java/net/minecraft/server/Main.java
@@ -13,7 +14,7 @@ index ec268189b19b6fa5c4521f96ce211a531db35ec5..433a273f489509d047d87e13ffc47152
              }
              // Spigot End
 +
-+            // Nanaica start - We at Nanaica agree to Mojang's EULA as there has to be rules to everything.
++            // Nanaica start
 +            if (!eula.hasAgreedToEULA()) {
 +                Main.LOGGER.warn("Automatically accepting Mojang's EULA. Please, stop using this Software immediately if you do not agree with this.");
 +                Main.LOGGER.warn("Note: this is a persistent change and will be stored in eula.txt from now on.");
@@ -27,5 +28,5 @@ index ec268189b19b6fa5c4521f96ce211a531db35ec5..433a273f489509d047d87e13ffc47152
 +            // Nanaica end
 +
              if (!eula.hasAgreedToEULA() && !eulaAgreed) { // Spigot
-                 Main.LOGGER.info("You need to agree to the EULA in order to run the server.");
+                 Main.LOGGER.info("You need to agree to the EULA in order to run the server. Go to eula.txt for more info.");
                  return;
