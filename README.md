@@ -7,6 +7,7 @@ Created on June 29th as WoolMC
   [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/NanaicaMC/Nanaica/build.yml?logo=GoogleAnalytics&logoColor=ffffff&style=for-the-badge)](https://github.com/NanaicaMC/Nanaica/actions)
   [![Discord](https://img.shields.io/discord/931595732752953375?color=5865F2&label=discord&style=for-the-badge)](https://discord.nanaicamc.tk)
   [![Download](https://img.shields.io/github/downloads/NanaicaMC/Nanaica/total?&style=for-the-badge&logoColor=ffffff)](https://github.com/NanaicaMC/Nanaica/releases/latest)
+  [![MC Version](https://img.shields.io/badge/MC-1.20.2-6047ff?&logo=Webpack&style=for-the-badge&logoColor=ffffff)](https://github.com/NanaicaMC/Nanaica/releases/latest-1.20.2)
 </div>
 
 ## bStats
