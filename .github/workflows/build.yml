@@ -35,10 +35,10 @@ jobs:
       - name: Patch
         run: ./gradlew applyPatches --stacktrace
 
-      - name: Create Reobf Paperclip Jar
-         run: ./gradlew createReobfPaperclipJar --stacktrace
+      - name: Create Reobf Jar
+        run: ./gradlew createReobfPaperclipJar --stacktrace
 
-      - name: Create Mojmap Paperclip Jar
+      - name: Create Mojmap Jar
         run: ./gradlew createMojmapPaperclipJar --stacktrace
 
       - name: Upload Artifacts
