@@ -52,7 +52,7 @@ jobs:
         if: github.ref_name == env.branch
         uses: marvinpinto/action-automatic-releases@latest
         with:
-          title: "Release #${{ env.workflow }}"
+          title: "Update #${{ env.workflow }}"
           automatic_release_tag: release-${{ env.workflow }}
           repo_token: "${{ secrets.TOKEN }}"
           files: build/libs/*.jar
