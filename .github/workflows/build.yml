@@ -35,7 +35,7 @@ jobs:
       - name: Patch
         run: ./gradlew applyPatches --stacktrace
 
-       - name: Create Reobf Jar
+      - name: Create Reobf Paperclip Jar
          run: ./gradlew createReobfPaperclipJar --stacktrace
 
       - name: Create Mojmap Paperclip Jar
