@@ -66,4 +66,4 @@ jobs:
           automatic_release_tag: latest-${{ env.version }}
           repo_token: "${{ secrets.TOKEN }}"
           files: build/libs/*.jar
-          prerelease: false
+          prerelease: true
