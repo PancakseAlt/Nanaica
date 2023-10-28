@@ -21,7 +21,7 @@ Created on June 29th as WoolMC
 
 
  Ensure your JDK is set up properly. (i.e. JDK path is in JAVA_HOME environment variable)
- Clone this repo or download it. (e.g. via git clone https://github.com/BromineMC/Whitehorse)
+ Clone this repo or download it. (e.g. via git clone https://github.com/NanaicaMC/Nanaica)
 Open the terminal (command prompt) there.
  Run ./gradlew applyPatches.
  Run ./gradlew createReobfPaperclipJar or ./gradlew createMojmapPaperclipJar.
