@@ -1,0 +1,51 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: VidTu <60929459+VidTu@users.noreply.github.com>
+Date: Thu, 30 Mar 2023 09:37:46 +0300
+Subject: [PATCH] Stackable items
+
+Original: VidTu <60929359+VidTu@users.noreply.github.com>
+Copyright (C) 2023 BromineMC
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+diff --git a/src/main/java/net/minecraft/world/item/ItemStack.java b/src/main/java/net/minecraft/world/item/ItemStack.java
+index fc481f26368f4d823379921573a05ac5b91f39e6..08c78905b75f76d7ffc5d99b084b03f342202c47 100644
+--- a/src/main/java/net/minecraft/world/item/ItemStack.java
++++ b/src/main/java/net/minecraft/world/item/ItemStack.java
+@@ -570,6 +570,12 @@ public final class ItemStack {
+     }
+ 
+     public int getMaxStackSize() {
++        // Nanaica start - stackable items
++        if (this.tag != null && this.tag.contains("Nanaica.MaxStackSize")) {
++            byte maxStackSize = this.tag.getByte("Nanaica.MaxStackSize");
++            if (maxStackSize > 0 && maxStackSize <= 64) return maxStackSize;
++        }
++        // Nanaica end
+         return this.getItem().getMaxStackSize();
+     }
+ 
+diff --git a/src/main/java/org/bukkit/craftbukkit/inventory/CraftItemStack.java b/src/main/java/org/bukkit/craftbukkit/inventory/CraftItemStack.java
+index 6556d7ab09826bb5a99f11385eddc26b67e44d68..49d1f41e4010255b1ab1a98fc4cefca39d32fcd9 100644
+--- a/src/main/java/org/bukkit/craftbukkit/inventory/CraftItemStack.java
++++ b/src/main/java/org/bukkit/craftbukkit/inventory/CraftItemStack.java
+@@ -188,7 +188,7 @@ public final class CraftItemStack extends ItemStack {
+ 
+     @Override
+     public int getMaxStackSize() {
+-        return (this.handle == null) ? Material.AIR.getMaxStackSize() : this.handle.getItem().getMaxStackSize();
++        return (this.handle == null) ? Material.AIR.getMaxStackSize() : this.handle.getMaxStackSize(); // Nanaica - stackable items
+     }
+ 
+     // Paper start
