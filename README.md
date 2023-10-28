@@ -12,3 +12,17 @@ Created on June 29th as WoolMC
 
 ## bStats
 [![](https://bstats.org/signatures/server-implementation/NanaicaMC.svg)](https://bstats.org/plugin/server-implementation/NanaicaMC/19838)
+
+
+## Building
+ REQUIREMENTS
+ -Java 17 and above you need Temurin (https://adoptium.net/temurin/archive/?version=17)
+-Proper IDE (Visual Studio, IntelIDEA, and others)
+
+
+ Ensure your JDK is set up properly. (i.e. JDK path is in JAVA_HOME environment variable)
+ Clone this repo or download it. (e.g. via git clone https://github.com/BromineMC/Whitehorse)
+Open the terminal (command prompt) there.
+ Run ./gradlew applyPatches.
+ Run ./gradlew createReobfPaperclipJar or ./gradlew createMojmapPaperclipJar.
+  Grab JARs from /build/libs/
