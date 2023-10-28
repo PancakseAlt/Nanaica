@@ -1,0 +1,43 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Pancakse <pancakseyt@gmail.com>
+Date: Sat, 28 Oct 2023 23:52:44 +0300
+Subject: [PATCH] Allow any username
+
+
+diff --git a/src/main/java/org/nanaica/nanaica/configuration/NanaicaConfig.java b/src/main/java/org/nanaica/nanaica/configuration/NanaicaConfig.java
+index cdf83dc33915632e29291c59eb1841991c03e8a0..512afaa97e89e3beb92cf2ebc46248eddd22cf5c 100644
+--- a/src/main/java/org/nanaica/nanaica/configuration/NanaicaConfig.java
++++ b/src/main/java/org/nanaica/nanaica/configuration/NanaicaConfig.java
+@@ -157,4 +157,9 @@ public class NanaicaConfig {
+     private static void fallbackToDimensionIfWorldUUIDUnknown() {
+         fallbackToDimensionIfWorldUUIDUnknown = getBoolean("settings.fallback-to-dimension-if-world-uuid-unknown", fallbackToDimensionIfWorldUUIDUnknown);
+     }
++
++    public static boolean allowAnyUsername = false;
++    private static void allowAnyUsername() {
++        allowAnyUsername = getBoolean("settings.player.allow-any-username", allowAnyUsername);
++    }
+ }
+\ No newline at end of file
+diff --git a/src/main/java/net/minecraft/server/network/ServerLoginPacketListenerImpl.java b/src/main/java/net/minecraft/server/network/ServerLoginPacketListenerImpl.java
+index f0bbc48e2df1da42e4bf9f7113451738b986fbbf..85542bba7b145070b69b736519aee7f94a03568a 100644
+--- a/src/main/java/net/minecraft/server/network/ServerLoginPacketListenerImpl.java
++++ b/src/main/java/net/minecraft/server/network/ServerLoginPacketListenerImpl.java
+@@ -16,6 +16,8 @@ import java.util.concurrent.atomic.AtomicInteger;
+ import javax.annotation.Nullable;
+ import javax.crypto.Cipher;
+ import javax.crypto.SecretKey;
++
++import org.nanaica.nanaica.configuration.NanaicaConfig;
+ import net.minecraft.DefaultUncaughtExceptionHandler;
+ import net.minecraft.core.UUIDUtil;
+ import net.minecraft.network.Connection;
+@@ -160,7 +162,7 @@ public class ServerLoginPacketListenerImpl implements ServerLoginPacketListener,
+     @Override
+     public void handleHello(ServerboundHelloPacket packet) {
+         Validate.validState(this.state == ServerLoginPacketListenerImpl.State.HELLO, "Unexpected hello packet", new Object[0]);
+-        Validate.validState(ServerLoginPacketListenerImpl.isValidUsername(packet.name()), "Invalid characters in username", new Object[0]);
++        if (!NanaicaConfig.allowAnyUsername) Validate.validState(ServerLoginPacketListenerImpl.isValidUsername(packet.name()), "Invalid characters in username", new Object[0]); // Nanaica - Allow any username
+         // Paper start - validate usernames
+         if (io.papermc.paper.configuration.GlobalConfiguration.get().proxies.isProxyOnlineMode() && io.papermc.paper.configuration.GlobalConfiguration.get().unsupportedSettings.performUsernameValidation) {
+             if (!this.iKnowThisMayNotBeTheBestIdeaButPleaseDisableUsernameValidation && !validateUsername(packet.name())) {
